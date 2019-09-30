@@ -11,5 +11,6 @@ namespace EitaConsulting.API.Data
         }
         public DbSet<Value> Values { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<ContratSociete> ContratSocietes { get; set; }
     }
 }
