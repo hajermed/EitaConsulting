@@ -16,7 +16,7 @@ namespace EitaConsulting.API.Controllers
         {
             _context = context;
         }
-        // GET api/values
+        // GET api/ContratScoietes
         [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetContratSocietes()
@@ -39,6 +39,7 @@ namespace EitaConsulting.API.Controllers
         [HttpPost]
         public void Post([FromBody] string contratSociete)
         {
+            
         }
 
         // PUT api/values/5

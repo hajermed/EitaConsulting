@@ -1,44 +1,44 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <img
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <div class="container">
+  <img
     width="40"
     alt="Angular Logo"
     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
   />
-  <a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">EitaConsulting</font></font></a>
-
-
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">
-          <font style="vertical-align: inherit;">
-            <font style="vertical-align: inherit;">Contrat Société </font>
-          </font>
-        </a>
+  <a class="navbar-brand" [routerLink]="['/home']" >EitaConsulting</a>
+    <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/members']">Contrat Société</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" (click)="logout()">Déconnexion
-        </a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/lists']" >Lists</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/messages']"  >Messages</a>
       </li>
     </ul>
-    <div *ngIf="loggedIn()" class="dropdown">
-        <a class="dropdown-toggle text-light">
-          Bienvenue utilisateur 
+
+    <div *ngIf="loggedIn()" class="dropdown" dropdown>
+        <a class="dropdown-toggle text-light" dropdownToggle>
+          Bienvenue {{authService.decodeToken?.unique_name}}
         </a>
       
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <div class="dropdown-menu mt-3" *dropdownMenu>
           <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Modifier profile</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#"> <i class="fa fa-sign-out"></i>Déconnexion</a>
+          <a class="dropdown-item" (click)="logout()"> <i class="fa fa-sign-out"></i>Déconnexion</a>
         </div>
-      </div>
-    <form *ngIf="!loggedIn()" #LoginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()" >
-        <input class="form-control mr-sm-2" type="text" name="username" 
+      </div>   
+    <form *ngIf="!loggedIn()" #LoginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()"  style=" text-align: center">
+      
+        <input class="form-control mr-sm-2" type="text" align-text = "center" name="username" 
         placeholder="Username" required [(ngModel)]="model.username">
-      <input class="form-control mr-sm-2" type="password" name="password" 
+      <input class="form-control mr-sm-2" type="password" lign-text = "center" name="password" 
         placeholder="Password" required [(ngModel)]="model.password">
       <button [disabled]="!LoginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">
           Connexion
       </button>
+    
       <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
     
         <svg id="twitter-logo" height="24" data-name="Logo — FIXED" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
@@ -59,4 +59,6 @@
         </svg>
       </a> 
     </form>
+  </div>
 </nav>
+
