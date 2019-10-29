@@ -21,6 +21,7 @@ import { ProductAddComponent } from './product-add/product-add.component';
 import { ProductGetComponent } from './product-get/product-get.component';
 import { ContratSocieteAddComponent } from './contrat-societe-add/contrat-societe-add.component';
 import { ContratSocieteGetComponent } from './contrat-societe-get/contrat-societe-get.component';
+//import { contratsocieteService} from './_services/contratsociete.service';
 
 
 @NgModule({

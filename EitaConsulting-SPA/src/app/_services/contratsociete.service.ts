@@ -13,7 +13,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ContratsocieteService {
-// baseUrl = environment.apiUrl;
 baseUrl = 'http://localhost:5000/api/';
 
 constructor(private http: HttpClient) {}
